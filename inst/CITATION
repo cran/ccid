@@ -1,0 +1,12 @@
+citHeader("To cite package 'ccid' in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "ccid: a new change-point method for estimating dynamic functional connectivity",
+  author       = personList(as.person("Andreas Anastasiou")),
+  year         = "2020",
+  note         = "R package version 1.0",
+  textVersion  =
+  paste("Andreas Anastasiou (2020).",
+        "ccid: a new change-point method for estimating dynamic functional connectivity.",
+        "R package version 1.0.")
+)

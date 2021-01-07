@@ -1,0 +1,29 @@
+#' ccid: a change-point detection method for estimating dynamic functional connectivity
+#'
+#' The \code{ccid} package implements the Cross-Covariance Isolate Detect
+#' (CCID) methodology for the estimation of the number and location of
+#' multiple change-points in the second-order (cross-covariance or network)
+#' structure of multivariate, possibly high-dimensional time series. The
+#' method is motivated by the detection of change points in functional
+#' connectivity networks for functional magnetic resonance imaging (fMRI),
+#' electroencephalography (EEG), magentoencephalography (MEG) and
+#' electrocorticography (ECoG) data. The stopping rules used for the
+#' change-point detection rely either on thresholding or on the optimization
+#' of a model selection criterion. The main routines of the package are
+#' \code{\link{detect.th}} and \code{\link{detect.ic}}. The functions have been
+#' extensively tested on fMRI data, therefore, their parameters have been
+#' tuned to work well on this data and the functions might not work well
+#' in other structures, such as time series that are negatively serially
+#' correlated.
+#'
+#' @author Andreas Anastasiou, \email{anastasiou.andreas@ucy.ac.cy}, Piotr Fryzlewicz, \email{p.fryzlewicz@lse.ac.uk}, Ivor Cribben, \email{cribben@ualberta.ca}
+#' @references ``Cross-covariance isolate detect: a new change-point method for estimating
+#'   dynamic functional connectivity'', Anastasiou et al (2020), preprint.
+#' @seealso
+#' \code{\link{detect.th}} and \code{\link{detect.ic}}.
+#' @examples
+#' # See Examples for the function ``detect.th''.
+#' @docType package
+#' @name ccid
+NULL
+##NULL
