@@ -609,7 +609,7 @@ prune_cpt <- function(X, cpts, distance) {
     ind <- which(dc < distance)
     l_ind <- length(ind)
     if (l_ind == 0) {
-        return(cpts)
+        return(changepoints = cpts, no.of.cpts = l.cpts)
     } else {
         cands <- sort(cpts[unique(c(ind, ind + 1))])
         l_cands <- length(cands)
@@ -642,3 +642,4 @@ prune_cpt <- function(X, cpts, distance) {
         return(list(changepoints = cpts, no.of.cpts = l.cpts))
     }
 }
+

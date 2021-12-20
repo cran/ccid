@@ -129,9 +129,9 @@ match.cpt.ts <- function(X, cpt, thr_const = 1,
   s_cpt <- sort(cpt)
   lx <- nrow(X)
   lc <- ncol(X)
-  lc_i <- lc/lsc
+  lc_i <- lc /lsc
   count <- min(lc_i, count)
-  pdim <- (-lsc + sqrt((lsc^2)+8*lc*lsc))/(2*lsc)
+  pdim <- (- lsc + sqrt((lsc^2) + 8 * lc * lsc)) /( 2 * lsc)
   if (round(pdim) != pdim){
     stop("The input in X of the function match.cpt.ts does not seem to be
          the result of a wavelet transformation on the original time series since
@@ -142,7 +142,7 @@ match.cpt.ts <- function(X, cpt, thr_const = 1,
     return(list(time_series_indicator = "Matching the time series with the change-points is not possible when no change-points are given."))
   }
   else{
-    seb_set <- unique(c(1, s_cpt, lx))
+    seb_set <- c(1, s_cpt, lx)
     lseb_set <- length(seb_set)
     Res <- list()
     Res$matches <- list()
@@ -168,11 +168,16 @@ match.cpt.ts <- function(X, cpt, thr_const = 1,
       indic2[i] <- which(ts1[,2*i] <= thr_fin)[1]
     }
     mind <- max(indic2)
+    if (is.na(mind)){
+      ts <- ts1[1:(lc_i), ,drop = FALSE]
+    }
+    else{
     if (mind == 1){
       ts <- matrix(0,0,2*lcpt)
     }
     else{
       ts <- ts1[1:(mind - 1), ,drop = FALSE]
+    }
     }
     res <- list()
     A <- matrix(0, pdim, pdim)
@@ -332,10 +337,9 @@ detect.th <- function(X, approach = c("euclidean", "infinity"),
         stopifnot(sum(scales < 0) == length(scales))
         scales <- sort(scales, decreasing = TRUE)
     }
-    if (ncol(X) <= 10) {
+    if (ncol(X) <= 4) {
       approach[1] <- "infinity"
     }
-    lsc <- length(scales)
     input <- t(hdbinseg::gen.input(t(X), scales, TRUE, diag = FALSE, sgn))
     if (approach[1] == "infinity") {
         cpt <- cpt_ts_Linf(input, thr_const_m = th_max,
@@ -473,7 +477,7 @@ detect.ic <- function(X, approach = c("euclidean", "infinity"),
         stopifnot(sum(scales < 0) == length(scales))
         scales <- sort(scales, decreasing = TRUE)
     }
-    if (ncol(X) <= 10) {
+    if (ncol(X) <= 4) {
       approach[1] <- "infinity"
     }
     input <- t(hdbinseg::gen.input(t(X), scales, TRUE, diag = FALSE, sgn))
@@ -495,3 +499,4 @@ detect.ic <- function(X, approach = c("euclidean", "infinity"),
         return(prune_cpt(input, cpt$changepoints, distance = min_dist))
     }
 }
+
