@@ -2,7 +2,7 @@ Package: ccid
 Type: Package
 Title: Cross-Covariance Isolate Detect: a New Change-Point Method for
         Estimating Dynamic Functional Connectivity
-Version: 1.1.0
+Version: 1.2.0
 Depends: R (>= 3.6.0)
 Imports: IDetect, hdbinseg, GeneNet, gdata
 Authors@R: c(person("Andreas", "Anastasiou", email = "anastasiou.andreas@ucy.ac.cy", role = c("aut", "cre")),
@@ -29,10 +29,10 @@ BugReports: https://github.com/Anastasiou-Andreas/ccid/issues
 Suggests: testthat (>= 2.0.0)
 Config/testthat/edition: 2
 NeedsCompilation: no
-Packaged: 2021-12-20 10:57:30 UTC; aanast03
+Packaged: 2022-02-01 10:24:25 UTC; ANASTAS7
 Author: Andreas Anastasiou [aut, cre],
   Ivor Cribben [aut],
   Piotr Fryzlewicz [aut]
 Maintainer: Andreas Anastasiou <anastasiou.andreas@ucy.ac.cy>
 Repository: CRAN
-Date/Publication: 2021-12-20 11:10:02 UTC
+Date/Publication: 2022-02-01 10:50:02 UTC

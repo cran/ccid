@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-The goal of ccid is to implements the Cross-Covariance Isolate Detect
+The goal of ccid is to implement the Cross-Covariance Isolate Detect
 (CCID) methodology for the estimation of the number and location of
 multiple change-points in the second-order (cross-covariance or network)
 structure of multivariate, possibly high-dimensional time series. The

@@ -604,12 +604,18 @@ loglik_chisq <- function(X, cpt, no.cpt = length(cpt)) {
 
 
 prune_cpt <- function(X, cpts, distance) {
+    if (cpts[1] == 1){
+      cpts <- cpts[-1]
+    }
+  if (cpts[length(cpts)] == nrow(X)){
+    cpts <- cpts[-length(cpts)]
+  }
     l_cpts <- length(cpts)
     dc <- diff(cpts)
     ind <- which(dc < distance)
     l_ind <- length(ind)
     if (l_ind == 0) {
-        return(changepoints = cpts, no.of.cpts = l.cpts)
+        return(list(changepoints = cpts, no.of.cpts = l_cpts))
     } else {
         cands <- sort(cpts[unique(c(ind, ind + 1))])
         l_cands <- length(cands)
@@ -636,7 +642,7 @@ prune_cpt <- function(X, cpts, distance) {
             indicator <- which(seb_set %in% cands)
             seb_set <- c(seb_set[indicator[1] - 1], cands, seb_set[indicator[length(indicator)] + 1])
             lseb_set <- length(seb_set)
-        }
+          }
         cpts <- cpts[!cpts %in% min_C]
         l.cpts <- length(cpts)
         return(list(changepoints = cpts, no.of.cpts = l.cpts))
